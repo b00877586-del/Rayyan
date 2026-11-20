@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #080610;
+    color: white;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #30134c, transparent 40%),
+        radial-gradient(circle at 80% 80%, #24103d, transparent 40%);
+    z-index: -1;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+}
+
+.top-text {
+    color: #c9a8ff;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 65px;
+}
+
+.heart {
+    width: 135px;
+    height: 135px;
+    background: linear-gradient(135deg, #a34cff, #542080);
+    position: relative;
+    margin: 0 auto 70px;
+    transform: rotate(-45deg);
+    animation: heartbeat 1.5s infinite;
+    box-shadow: 0 0 30px #9e4dff,
+                0 0 65px #6525a0;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 135px;
+    height: 135px;
+    background: inherit;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -67px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 67px;
+}
+
+.heart-content {
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 3;
+    top: 35px;
+    left: 22px;
+    width: 100px;
+}
+
+.heart-content span {
+    color: #f2ddff;
+    font-size: 18px;
+}
+
+.heart-content h1 {
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    color: white;
+    text-shadow: 0 0 12px white;
+}
+
+.heart-content p {
+    font-size: 22px;
+}
+
+h2 {
+    color: #d7baff;
+    font-size: 23px;
+    margin-bottom: 25px;
+}
+
+.message-box {
+    border-top: 1px solid #9d72c7;
+    border-bottom: 1px solid #9d72c7;
+    padding: 22px 10px;
+}
+
+.english {
+    color: #e5d7f5;
+    font-size: 16px;
+    line-height: 1.8;
+    direction: ltr;
+}
+
+.arabic {
+    color: #c9a8ff;
+    font-size: 19px;
+    line-height: 2;
+    margin-top: 15px;
+}
+
+.stars {
+    color: #d9c0ff;
+    font-size: 25px;
+    margin-top: 28px;
+}
+
+.footer {
+    color: #c9a8ff;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    animation: floatUp 7s linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.12);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.9;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(180deg);
+        opacity: 0;
+    }
+}
